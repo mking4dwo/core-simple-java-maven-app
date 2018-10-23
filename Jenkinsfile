@@ -20,7 +20,6 @@ pipeline {
         }
       }
     }
-  stages {
     stage('Build') {
       steps {
         sh 'mvn -B -DskipTests clean package'
@@ -31,7 +30,7 @@ pipeline {
         sh 'mvn test'
       }
       post {
-        always { 
+        always {
           junit '**/*.xml'
         }
       }
